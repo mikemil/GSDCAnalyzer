@@ -1,0 +1,34 @@
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile localGroovy()
+}
+
+sourceSets {
+  main {
+    groovy {
+      srcDir 'src'
+    }
+  }
+}
+
+task runApp(type: JavaExec) {
+    description 'Run GSDCAnalyzer project'
+ 
+    // Set main property to name of Groovy script class.
+    main = 'util.GSDCAnalyzer'
+ 
+    // Set classpath for running the Groovy script.
+    classpath = sourceSets.main.runtimeClasspath
+ 
+    if (project.hasProperty('custom')) {
+        // Pass command-line argument to script.
+        args project.getProperty('custom')
+    }
+}
+ 
+defaultTasks 'runApp'

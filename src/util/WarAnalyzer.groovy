@@ -5,7 +5,7 @@ package util
 class WarAnalyzer extends JarAnalyzer implements Analyzer {
 
     List<Module> analyze(String projectPath, String name) {
-        // first find all modules analyzed in Jars
+        // first find all modules analyzed in Jars analyzer
         def mods = super.analyze(projectPath, name)
 
         // now look for the WAR specific files
@@ -33,6 +33,7 @@ class WarAnalyzer extends JarAnalyzer implements Analyzer {
     private List<Module> analyzeWebServicesClientXml(projectPath) {
         List<Module> mods = new FileFinder().findModules(projectPath, /webservicesclient\.xml/, webServicesClientXmlAnalysis)
 
+        // TODO - check once I can run against real source code!!!
         //these may only be in the COMPONENT project
         //mods.addAll ( new FileFinder().findModules(projectPath, /WebServiceClient\.\.*xml/, serviceLocatorClientXmlAnalysis) )
 

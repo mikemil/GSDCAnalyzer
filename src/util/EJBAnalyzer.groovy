@@ -10,7 +10,7 @@ class EJBAnalyzer implements Analyzer {
         List<Module> mods = []
 
         //todo fix later - just testing right now
-        mods << new Module(name:name, type: ModuleType.EJB, status: ModuleStatus.DISCOVERED)
+        //mods << new Module(name:name, type: ModuleType.EJB, status: ModuleStatus.DISCOVERED)
         return mods
     }
 }

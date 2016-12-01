@@ -1,8 +1,14 @@
 package util
 
+import groovy.transform.ToString
+
 /**
- * Created by mike on 11/5/16.
+ * Base class for each source code project
+ * and it should have a list of 'modules'
+ * each representing some type of work to be
+ * done as part of the migration.
  */
+@ToString
 class Project {
 
     String projectName
@@ -77,8 +83,8 @@ class Project {
         return false
     }
 
-    String toString() {
-        '\nProject: '+projectName+'\n path: '+path+'\n projectType: '+projectType+'\n modules: '+modules
-    }
+//    String toString() {
+//        '\nProject: '+projectName+'\n path: '+path+'\n projectType: '+projectType+'\n modules: '+modules
+//    }
 
 }
